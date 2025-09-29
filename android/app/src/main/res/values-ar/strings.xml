@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- القائمة الرئيسية -->
+    <string name="navigation_drawer_open">افتح قائمة التنقل</string>
+    <string name="navigation_drawer_close">أغلق قائمة التنقل</string>
+    <string name="nav_header_subtitle">multiPOS.cloud</string>
+    <string name="nav_header_desc">رأس التنقل</string>
+    <string name="action_settings">الإعدادات</string>
+
+    <!-- التسجيل والإعداد -->
+    <string name="register">تسجيل</string>
+    <string name="pos_setup">إعداد نقطة البيع</string>
+    <string name="locations">المواقع</string>
+    <string name="configurations">الإعدادات</string>
+    <string name="register_open">فتح التسجيل</string>
+    <string name="cust_welcome">مرحبًا</string>
+
+    <!-- طرق الدفع -->
+    <string name="cash">نقدًا</string>
+    <string name="card">بطاقات</string>
+    <string name="credit">ائتمان</string>
+    <string name="debit">خصم</string>
+    <string name="pay_credit">دفع ائتمان</string>
+    <string name="cash_discount_total">إجمالي النقد</string>
+    <string name="credit_total">إجمالي الائتمان</string>
+    <string name="check">شيك</string>
+    <string name="gift_card">بطاقة هدية</string>
+    <string name="gift_certificate">شهادة هدية</string>
+
+    <!-- المبالغ والحسابات -->
+    <string name="total">الإجمالي</string>
+    <string name="totals">الإجماليات</string>
+    <string name="tendered">المبلغ المدفوع</string>
+    <string name="tax">ضريبة</string>
+    <string name="tax_total">إجمالي الضريبة</string>
+    <string name="sub_total">الإجمالي الفرعي</string>
+    <string name="service_fee">رسوم الصراف</string>
+    <string name="service_fee_refund">استرداد رسوم الصراف</string>
+    <string name="auth_amount">مبلغ التفويض</string>
+    <string name="start_payment">الدفع</string>
+    <string name="balance_due">الرصيد المستحق</string>
+    <string name="change">الباقي</string>
+
+    <!-- معلومات التاجر -->
+    <string name="merchant">معرّف التاجر</string>
+    <string name="version">الإصدار</string>
+
+    <!-- البطاقات -->
+    <string name="amex">أميكس</string>
+    <string name="visa">فيزا</string>
+    <string name="discover">ديسكفر</string>
+    <string name="mastercard">ماستركارد</string>
+    <string name="ebt">EBT</string>
+    <string name="other">أخرى</string>
+    <string name="payment_offline">دفع غير متصل</string>
+
+    <!-- التحكم -->
+    <string name="start_capture">ابدأ</string>
+    <string name="stop_capture">إيقاف</string>
+    <string name="invalid_operation">عملية غير صالحة</string>
+    <string name="complete_ticket">يرجى إكمال أو إلغاء التذكرة الحالية</string>
+    <string name="pay">دفع</string>
+    <string name="voided">ملغي</string>
+    <string name="void_item">إلغاء عنصر</string>
+    <string name="void_sale">إلغاء بيع</string>
+    <string name="confirm">تأكيد</string>
+    <string name="enter_ticket_name">أدخل اسم التذكرة</string>
+    <string name="enter_price">أدخل السعر</string>
+    <string name="enter_volume">أدخل الكمية</string>
+
+    <!-- التقارير والإحصائيات -->
+    <string name="department_totals">إجماليات الأقسام</string>
+    <string name="tax_totals">إجمالي الضريبة</string>
+    <string name="tender_totals">إجماليات المدفوعات</string>
+    <string name="card_totals">إجماليات البطاقات</string>
+
+    <!-- العمليات -->
+    <string name="select_items">اختر العناصر</string>
+    <string name="exit_confirm">الخروج من نقطة البيع؟</string>
+    <string name="exit">خروج</string>
+    <string name="split_ticket">تقسيم التذكرة</string>
+
+    <!-- الموظفين -->
+    <string name="cashier_number">رقم الصراف</string>
+    <string name="manager_number">رقم المدير</string>
+    <string name="enter_manager_number">أدخل رقم المدير</string>
+    <string name="enter_manager_pin">أدخل رمز المدير</string>
+    <string name="enter_clerk_number">أدخل رقم الموظف</string>
+    <string name="clerk_not_found">لم يتم العثور على الموظف</string>
+    <string name="enter_washing_attendant">أدخل مسؤول الغسيل</string>
+    <string name="clerk_desc">مسؤول الغسيل</string>
+    <string name="enter_cashier_number">أدخل رقم الصراف</string>
+    <string name="enter_cashier_pin">أدخل رمز PIN</string>
+    <string name="enter_pin">أدخل رمز PIN</string>
+    <string name="enter_passcode">أدخل رمز المرور</string>
+    <string name="invalid_cashier_number">رقم صراف غير صالح</string>
+    <string name="invalid_clerk_number">رقم موظف غير صالح</string>
+    <string name="bad_cashier_pin">رمز PIN خاطئ</string>
+    <string name="bad_cashier_number">رقم صراف خاطئ</string>
+
+    <!-- المعاملات -->
+    <string name="split">تقسيم</string>
+    <string name="bank">إيداع/سحب</string>
+    <string name="comp_sale">بيع مجاني</string>
+    <string name="return_sale">مرتجع</string>
+    <string name="no_sale">لا يوجد بيع</string>
+    <string name="open_amount">مبلغ الفتح</string>
+    <string name="enter_open_amount">أدخل مبلغ الفتح</string>
+    <string name="drop">إيداع</string>
+    <string name="enter_drop_amount">أدخل مبلغ الإيداع</string>
+
+    <!-- التقارير -->
+    <string name="confirm_z_session">تقرير Z؟</string>
+    <string name="ticket">إيصال</string>
+    <string name="open_tabs">الحسابات المفتوحة</string>
+    <string name="tax_total_included">شامل الضريبة</string>
+
+    <!-- الطابعة والتحديثات -->
+    <string name="wait_connect_printer">انتظر الطابعة...</string>
+    <string name="check_for_updates">البحث عن تحديثات...</string>
+    <string name="load_data">جاري تحميل الإعدادات...</string>
+
+    <!-- متفرقات -->
+    <string name="of">من</string>
+    <string name="split_tender">تقسيم الدفع</string>
+    <string name="pos_no">نقطة البيع</string>
+    <string name="response_text">الاستجابة</string>
+    <string name="auth_code">رمز التفويض</string>
+    <string name="transaction_id">رقم المعاملة</string>
+    <string name="signature">التوقيع</string>
+
+    <!-- النسب المئوية -->
+    <string name="ten_percent">10%</string>
+    <string name="fifteen_percent">15%</string>
+    <string name="twenty_percent">20%</string>
+    <string name="update">تحديث</string>
+    <string name="back_to_pos">العودة إلى نقطة البيع</string>
+
+    <!-- الوظائف -->
+    <string name="job_home">الرئيسية</string>
+    <string name="job_no">رقم العمل#</string>
+    <string name="job_attendant">المسؤول</string>
+    <string name="job_containers">الحاويات</string>
+    <string name="job_state">الحالة</string>
+    <string name="job_pending">قيد الانتظار</string>
+    <string name="job_complete">جاهز للاستلام</string>
+    <string name="job_complete_and_load">جاهز للاستلام والاسترجاع</string>
+    <string name="job_continue">متابعة</string>
+    <string name="job_open">فتح</string>
+    <string name="job_select">اختيار</string>
+    <string name="job_select_print">اختيار وطباعة</string>
+    <string name="job_cancel">إلغاء</string>
+    <string name="job_enter_pin">أدخل رمز PIN</string>
+    <string name="job_enter_passcode">أدخل رمز المرور</string>
+    <string name="job_select_prompt">اختر عملاً!</string>
+    <string name="job_invalid">رمز PIN أو رمز المرور غير صالح!</string>
+
+    <!-- البقشيش -->
+    <string name="select_ticket">اختر معاملة</string>
+    <string name="tip">إكرامية</string>
+    <string name="total_before_tip">الإجمالي قبل الإكرامية</string>
+    <string name="total_with_tip">الإجمالي مع الإكرامية</string>
+
+    <!-- بطاقات السحب -->
+    <string name="count_tickets_start">عد التذاكر، اضغط \"وزن سلة الفارغ\" للبدء</string>
+    <string name="weighing_tare">وزن الفارغ</string>
+    <string name="weighing_tickets">وزن التذاكر</string>
+    <string name="pull_tabs_new_tare">فارغ جديد</string>
+    <string name="pull_tab_counts">عد بطاقات السحب</string>
+    <string name="new_tare_weight">سلة فارغة جديدة</string>
+</resources>
