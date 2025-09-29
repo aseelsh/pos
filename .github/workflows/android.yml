@@ -1,0 +1,112 @@
+name: Android CI
+
+on:
+  push:
+    branches: [ "main" ]
+    tags:
+      - 'v*'  # سيتم تشغيل العملية عند إنشاء tag يبدأ بـ v
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0  # نحتاج إلى كامل التاريخ للإصدارات
+
+    - name: Set up JDK 11
+      uses: actions/setup-java@v3
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+        cache: gradle
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x android/gradlew
+
+    - name: Cache Gradle packages
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
+
+    - name: Build with Gradle
+      run: cd android && ./gradlew build
+
+    - name: Build Debug APK
+      run: cd android && ./gradlew assembleDebug
+
+    - name: Build Release APK
+      if: startsWith(github.ref, 'refs/tags/v')  # فقط عند وجود tag
+      run: |
+        cd android
+        ./gradlew assembleRelease
+
+    - name: Sign Release APK
+      if: startsWith(github.ref, 'refs/tags/v')
+      run: |
+        cd android
+        echo "${{ secrets.KEYSTORE }}" > keystore.jks.base64
+        base64 -d keystore.jks.base64 > app/keystore.jks
+        ./gradlew signReleaseBundle \
+          -Pandroid.injected.signing.store.file=keystore.jks \
+          -Pandroid.injected.signing.store.password=${{ secrets.STORE_PASSWORD }} \
+          -Pandroid.injected.signing.key.alias=${{ secrets.KEY_ALIAS }} \
+          -Pandroid.injected.signing.key.password=${{ secrets.KEY_PASSWORD }}
+
+    # رفع نسخة Debug
+    - name: Upload Debug APK
+      uses: actions/upload-artifact@v3
+      with:
+        name: app-debug
+        path: android/app/build/outputs/apk/debug/app-debug.apk
+        retention-days: 14  # حفظ لمدة 14 يوم
+
+    # رفع نسخة Release عند وجود tag
+    - name: Upload Release APK
+      if: startsWith(github.ref, 'refs/tags/v')
+      uses: actions/upload-artifact@v3
+      with:
+        name: app-release
+        path: |
+          android/app/build/outputs/apk/release/app-release.apk
+          android/app/build/outputs/bundle/release/app-release.aab
+        retention-days: 30  # حفظ لمدة 30 يوم
+
+    # إنشاء GitHub Release عند وجود tag
+    - name: Create Release
+      if: startsWith(github.ref, 'refs/tags/v')
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          android/app/build/outputs/apk/release/app-release.apk
+          android/app/build/outputs/bundle/release/app-release.aab
+        body: |
+          ## التغييرات في هذا الإصدار
+          
+          * تم بناء النسخة تلقائياً من خلال GitHub Actions
+          * يحتوي على آخر التحديثات من فرع main
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Upload Build Reports
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: build-reports
+        path: android/app/build/reports/
+        retention-days: 7  # حفظ التقارير لمدة 7 أيام
+
+    - name: Cleanup Gradle Cache
+      run: |
+        rm -f ~/.gradle/caches/modules-2/modules-2.lock
+        rm -f ~/.gradle/caches/modules-2/gc.properties
